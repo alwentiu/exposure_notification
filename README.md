@@ -389,3 +389,7 @@ We are currently performing more thorough tests on a range of other phone models
 
 If you would like to get in touch regarding this research, you can reach us through alwen.tiu@anu.edu.au. 
 
+## 8. Acknowledgement
+
+Thanks to Vanessa Teague and Jim Mussared for various insightful discussions regarding this research. 
+
