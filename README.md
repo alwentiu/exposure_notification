@@ -380,8 +380,10 @@ One potential mitigation could be to introduce some delay in between advertiseme
 
 ## 6. Related and Future Work
 
-We first discovered this issue on August 6th 2020, and we intended to go through a responsible disclosure procedure, but we have just learned that on September 3rd 2020, [another group of researchers has identified the same issue](https://hackaday.com/2020/09/03/covid-tracing-framework-privacy-busted-by-bluetooth/) 
-and has gone public with the details. Consequently we decided to release the full details of our on-going research. 
+This issue was first discovered by Serge Vaudenay and Martin Vuagnoux in May; it was mentioned briefly [here](https://lasec.epfl.ch/people/vaudenay/swisscovid/swisscovid-ana.pdf), and has been reported to Switzerland National Cyber Security Center (see [here](https://www.melani.admin.ch/dam/melani/de/dokumente/2020/SwissCovid_Public_Security_Test_Current_Findings.pdf.download.pdf/SwissCovid_Public_Security_Test_Current_Findings.pdf); under INR-5198). They have given a demonstration of the issue [here](https://hackaday.com/2020/09/03/covid-tracing-framework-privacy-busted-by-bluetooth/); see also [their article on the analysis of SwissCovid.](https://lasec.epfl.ch/people/vaudenay/swisscovid.html) 
+This issue was also noticed by Vincenzo IOVINO (see [here](https://github.com/immuni-app/immuni-app-android/issues/225#issuecomment-646707251)) for Immuni Android app. 
+
+We discovered this issue independently (unaware of the above prior discoveries) on August 6th 2020, and was made aware of the above related work on Sept 3th 2020.  
 
 We are currently performing more thorough tests on a range of other phone models using dedicated bluetooth hardware scanners. 
 
@@ -391,5 +393,5 @@ If you would like to get in touch regarding this research, you can reach us thro
 
 ## 8. Acknowledgement
 
-Thanks to Vanessa Teague and Jim Mussared for various insightful discussions regarding this research. 
+Thanks to Vanessa Teague and Jim Mussared for various insightful discussions regarding this research, and to Martin Vuagnoux and Serge Vaudenay for providing the history of the discovery of this issue and their subsequent responsible disclosure to SwissCovid and Google. 
 
