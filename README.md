@@ -54,7 +54,7 @@ Let the scan run for a few hours so that you have enough data. To see the scan d
 ```bash
 # grep -B 8 -A 2 "(0xfd6f)" hcitrace.txt > en.txt
 ```
-This will produce a file en.txt containing only HCI events related to the EN scan responses. You may need to change the parameters '-B 8' (this will print the 8 lines before the matching line) and '-A 2' (this will print the two lines after the matching line) depending on the output format of your HCI scan. Here's an example of a scan result for my setup: 
+This will produce a file en.txt containing only HCI events related to the EN scan responses. You may need to change the parameters '-B 8' (this will print the 8 lines before the matching line) and '-A 2' (this will print the two lines after the matching line) depending on the output format of your HCI scan. Here's an example of a scan result for our setup: 
   ````
   > HCI Event: LE Meta Event (0x3e) plen 40            #208704 [hci0] 3365.683786
       LE Advertising Report (0x02)
@@ -333,7 +333,7 @@ Rotation for RPI: 338bc312462ad8cceac945f41bcfe45172bf7ada
 
 ## 3. List of phone models tested
 
-We have performed tests on the following phone models (in no particular order). We have used the SwissCovid app in all tests, and we have not yet tested them using other EN API apps (my conjecture is they will all behave similarly, since the BLE
+We have performed tests on the following phone models (in no particular order). We have used the SwissCovid app in all tests, and we have not yet tested them using other EN API apps (our conjecture is they will all behave similarly, since the BLE
 advertisement part is handled by the EN API, not the apps). 
 For Samsung Galaxy S6 Edge, we observed 100% out of sync -- which means it is completely trackable. 
 All of the tested phones are running their official firmwares; they have not been rooted and the bootloaders were locked. 
@@ -356,7 +356,7 @@ Although for some models, out-of-sync RPI rotation was not observed,
 we note that the experiments were performed using consumer grade bluetooth devices
 (built-in bluetooth adapters of laptop/desktop). Using dedicated hardware scanners 
 may allow a higher scanning resolution which may be able to observe a smaller
-out of sync window that was not detected in my experiments. Our conjecture is 
+out of sync window that was not detected in our experiments. Our conjecture is 
 if we scan the three BLE advertisement channels (channel 37, 38, 39) simultaneously
 using dedicated hardware (e.g., Ubertooth) we may be able to observe more
 frequent out-of-sync. 
@@ -370,12 +370,12 @@ using our built-in laptop bluetooth adapters) and more OoS Type 2.
 The attacker in this case aims to track a phone running a contact tracing app that is based on EN API. The MAC/RPI out-of-sync rotation allows the attacker to link two MACs sharing the same RPI, or two RPIs sharing the same MAC. Note that the attacker will need both types of OoS to be able to track a phone continuously. 
 Our current experiment shows that even with standard laptop/desktop, continous tracking up to a few hours is possible if the victim's phone is in within the bluetooth range. With dedicated scanning devices, this can potentially be further improved. Some of the gaps between segments of OoS can possibly be filled using other meta data, e.g., RSSI. 
 
-The EN API specification anticipates the Type 1 OoS, and claims that Type 2 OoS does not happen; thus it claims that the tracking can be done only up to 15 minutes. This is possibly true for newer phone models as my experiments indicate, but certainly not true for older Samsung phone models. 
+The EN API specification anticipates the Type 1 OoS, and claims that Type 2 OoS does not happen; thus it claims that the tracking can be done only up to 15 minutes. This is possibly true for newer phone models as our experiments indicate, but certainly not true for older Samsung phone models. 
 
 
 ## 5. Potential mitigation
 
-One potential mitigation could be to introduce some delay in between advertisements. Type 2 OoS is the interesting one, since Type 1 OoS doesn't seem possible to prevent. Preventing Type 2 OoS will limit the tracking to 15 minutes. From the scan data that I collected, it seems that Type 2 OoS happens only for a very short duration (less than 500ms typically). So introducing a couple of seconds delay, between the stopping of an old advertisement and the starting of a new advertisement, may prevent the attacker from observing the residual effect of the RPI rotations, and the delay should be negligible, as far as contact tracing is concerned. 
+One potential mitigation could be to introduce some delay in between advertisements. Type 2 OoS is the interesting one, since Type 1 OoS doesn't seem possible to prevent. Preventing Type 2 OoS will limit the tracking to 15 minutes. From the scan data that we collected, it seems that Type 2 OoS happens only for a very short duration (less than 500ms typically). So introducing a couple of seconds delay, between the stopping of an old advertisement and the starting of a new advertisement, may prevent the attacker from observing the residual effect of the RPI rotations, and the delay should be negligible, as far as contact tracing is concerned. 
 
 
 ## 6. Related and Future Work
