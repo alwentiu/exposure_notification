@@ -347,7 +347,7 @@ All of the tested phones are running their official firmwares; they have not bee
 - Samsung Galaxy S20 (Android 10) - Type 1 & 2 OoS not observed
 - Google Nexus 5X (Android 6) - Type 1 & Type 2 OoS observed but very rarely.
 - Google Pixel 4XL (Android 10) - Type 1 & 2 OoS not observed
-- Huawei P30 (Android 10) -Type 2 OoS not observed
+- Huawei P30 (Android 9) -Type 2 OoS not observed
 - Oppo Reno Z2 (Android 9) - Type 1/2 OoS not observed
 - Google Pixel 2XL (Android 10) - Type 2 OoS not observed
 
